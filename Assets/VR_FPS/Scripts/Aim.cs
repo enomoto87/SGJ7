@@ -42,12 +42,10 @@ public class Aim : MonoBehaviour {
                 if(this.interval <= 0f)
                 {
                     var heading = hit.point - this.juukou.transform.position;
-                    var distance = heading.magnitude;
-                    var direction = heading / distance;
-                    Debug.DrawLine(this.juukou.transform.position, heading);
+                    var direction = Quaternion.LookRotation(heading);
 
-                    Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
-                    //Instantiate(this.bullet, this.juukou.transform.position, Quaternion.Euler(direction) * Quaternion.Euler(-90f, 180f, 0f));
+                    //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
+                    Instantiate(this.bullet, this.juukou.transform.position, direction * Quaternion.Euler(-90f, 180f, 0f));
                     this.interval = 60f;
                 }         
                     
