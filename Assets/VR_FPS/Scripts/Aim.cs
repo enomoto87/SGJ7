@@ -14,9 +14,12 @@ public class Aim : MonoBehaviour {
     [SerializeField]
     GameObject juukou;
     [SerializeField]
-    GameObject RayShiten;
+    GameObject rayShiten;
+    [SerializeField]
+    Image fireMeter;
 
     float interval = 0f;
+    float maxInterval = 90f;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +29,7 @@ public class Aim : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // レーザー（ray）を飛ばす「起点」と「方向」
-        Ray ray = new Ray(this.RayShiten.transform.position, transform.forward);
+        Ray ray = new Ray(this.rayShiten.transform.position, transform.forward);
 
         // rayのあたり判定の情報を入れる箱を作る。
         RaycastHit hit;
@@ -49,9 +52,9 @@ public class Aim : MonoBehaviour {
 
                     //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
                     Instantiate(this.bullet, this.juukou.transform.position, direction * Quaternion.Euler(-90f, 180f, 0f));
-                    this.interval = 12f;
-                }         
-                    
+                    this.interval = maxInterval;
+                }
+                this.interval--;
 
             }
             else
@@ -59,14 +62,19 @@ public class Aim : MonoBehaviour {
 
                 // 照準器の色を「水色」（色は自由に変更してください。）
                 aimImage.color = new Color(0.0f, 1.0f, 1.0f, 1.0f);
+                interval = maxInterval;
             }
         }
         else
         {
             // 照準器の色を「水色」（色は自由に変更してください。）
             aimImage.color = new Color(0.0f, 1.0f, 1.0f, 1.0f);
+            interval = maxInterval;
         }
-        this.interval--;
+
+        fireMeter.fillAmount = 1 - (interval / maxInterval);
+
+
         /*
         int distance = 100;
         Vector3 rot = new Vector3(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z);
