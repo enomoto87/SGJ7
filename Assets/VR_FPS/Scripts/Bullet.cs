@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
     [SerializeField]
     GameObject bullet;
+
     bool isForced = false;
 
     // Update is called once per frame

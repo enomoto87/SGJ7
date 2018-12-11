@@ -18,12 +18,15 @@ public class Aim : MonoBehaviour {
     [SerializeField]
     Image fireMeter;
 
+    AudioSource audioSource;
+
     float interval = 0f;
-    float maxInterval = 90f;
+    float maxInterval = 10f;
 
 	// Use this for initialization
 	void Start () {
-		
+       audioSource = gameObject.GetComponent<AudioSource>();
+        //audioSource.clip = gunSE;
 	}
 	
 	// Update is called once per frame
@@ -52,6 +55,9 @@ public class Aim : MonoBehaviour {
 
                     //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
                     Instantiate(this.bullet, this.juukou.transform.position, direction * Quaternion.Euler(-90f, 180f, 0f));
+                    audioSource.PlayOneShot(audioSource.clip);
+
+           
                     this.interval = maxInterval;
                 }
                 this.interval--;
