@@ -13,6 +13,9 @@ public class Aim : MonoBehaviour {
     GameObject cameraEye;
     [SerializeField]
     GameObject juukou;
+    [SerializeField]
+    GameObject RayShiten;
+
     float interval = 0f;
 
 	// Use this for initialization
@@ -23,7 +26,7 @@ public class Aim : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // レーザー（ray）を飛ばす「起点」と「方向」
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(this.RayShiten.transform.position, transform.forward);
 
         // rayのあたり判定の情報を入れる箱を作る。
         RaycastHit hit;
