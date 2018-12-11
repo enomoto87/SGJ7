@@ -46,7 +46,7 @@ public class Aim : MonoBehaviour {
 
                     //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
                     Instantiate(this.bullet, this.juukou.transform.position, direction * Quaternion.Euler(-90f, 180f, 0f));
-                    this.interval = 60f;
+                    this.interval = 12f;
                 }         
                     
 
