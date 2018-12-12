@@ -7,7 +7,7 @@ public class SetFlameRate : MonoBehaviour {
     void Awake()
     {
         Application.targetFrameRate = 90;
-        Debug.Log("flameSet");
+        //Debug.Log("flameSet");
     }
 
     // Use this for initialization
@@ -18,6 +18,6 @@ public class SetFlameRate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float fps = 1f / Time.deltaTime;
-        Debug.LogFormat("{0}fps", fps);
+        //Debug.LogFormat("{0}fps", fps);
 	}
 }

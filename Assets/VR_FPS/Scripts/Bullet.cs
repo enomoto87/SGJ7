@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour {
     GameObject bullet;
 
     bool isForced = false;
+    int age = 0;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +19,10 @@ public class Bullet : MonoBehaviour {
             this.bullet.GetComponent<Rigidbody>().AddForce(force);
             this.isForced = true;
         }
-
+        this.age++;
+        
+        if(age >= 300)
+            Destroy(this.bullet);
     }
 
     private void OnCollisionEnter(Collision collision)
