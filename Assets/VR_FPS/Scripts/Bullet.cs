@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour {
         if (!this.isForced)
         {
             Vector3 force;
-            force = this.bullet.transform.up * 10000;
+            force = this.bullet.transform.up * 0.001f;
             this.bullet.GetComponent<Rigidbody>().AddForce(force);
             this.isForced = true;
         }
