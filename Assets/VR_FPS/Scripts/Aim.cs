@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Aim : MonoBehaviour {
 
-    const int NUM_GUN_TYPE = 2; //銃の種類
+    const int NUM_GUN_TYPE = 3; //銃の種類
 
     BaseGun[] guns; //銃の配列
     int currentGunIndex; //持っている銃のインデックス
@@ -26,12 +26,17 @@ public class Aim : MonoBehaviour {
     Image gunChangeMeter;
 
     [SerializeField]
+    List<GunStatus> gunStatus;
+
+    [SerializeField]
     List<GameObject> switchGunModel;
 
     [SerializeField]
     GameObject handGunImage;
     [SerializeField]
     GameObject SubmachineGunImage;
+    [SerializeField]
+    GameObject ShotGunImage;
 
     AudioSource audioSource;
     Vector3 reticleEnemyPosition;
@@ -54,9 +59,16 @@ public class Aim : MonoBehaviour {
 
         guns[0] = new HandGun();
         guns[1] = new SubmachineGun();
+        guns[2] = new ShotGun();
+
+        for (int i = 0; i < NUM_GUN_TYPE; i++)
+        {
+            guns[i].setGunStatus(gunStatus[i]);
+        }
 
         guns[0].baseInit(handGunImage, bullet, audioSource.clip);
         guns[1].baseInit(SubmachineGunImage, bullet, audioSource.clip);
+        guns[2].baseInit(ShotGunImage, bullet, audioSource.clip);
 
         for (int i = 0; i < NUM_GUN_TYPE; i++)
         {
@@ -155,7 +167,7 @@ public class Aim : MonoBehaviour {
             noTryChangeGun();
         }
 
-        fireMeter.fillAmount = 1 - ((float)guns[currentGunIndex].getCurrentInterval / guns[currentGunIndex].getGunInterval);
+        fireMeter.fillAmount = 1 - ((float)guns[currentGunIndex].getCurrentInterval / guns[currentGunIndex].GetGunStatus.getGunInterval);
         gunChangeMeter.fillAmount = 1 - ((float)currentGunChangeCount / maxGunChangeCount);
         //fireMeter.fillAmount = 1 - (interval / maxInterval);
     }

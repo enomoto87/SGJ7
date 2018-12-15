@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 135411890362409926}
   - component: {fileID: 114173818897778182}
   - component: {fileID: 114522115620694370}
+  - component: {fileID: 114382566592817364}
   m_Layer: 8
   m_Name: GreenJelly
   m_TagString: Enemy
@@ -134,6 +135,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 50
   enemy: {fileID: 1764961380649834}
+  scoreList: 64000000c80000002c010000
+--- !u!114 &114382566592817364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764961380649834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa038c1667b89845a0e49997e313a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: 1
 --- !u!114 &114522115620694370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,6 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 0.5
+  sinSpeed: 0.5
+  waitTime: 0
 --- !u!135 &135411890362409926
 SphereCollider:
   m_ObjectHideFlags: 1

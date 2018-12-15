@@ -6,25 +6,28 @@ using UnityEngine;
 public class BaseGun : MonoBehaviour {
 
     private GameObject gunImage; //銃のイメージ
+    protected GunStatus gunStatus;
     protected float attack; //攻撃力
-    protected int gunInterval; //射撃インターバル
-    private GameObject bullet; //呼び出される弾丸
-    private AudioClip fireSound; //撃った時の効果音
+    protected GameObject bullet; //呼び出される弾丸
+    protected AudioClip fireSound; //撃った時の効果音
 
     private int currentInterval; //インターバル計算における現在のカウント
 
 
-    public int getGunInterval
+    public GunStatus GetGunStatus
     {
-        get { return this.gunInterval; }
+        get { return this.gunStatus; }
     }
-
 
     public int getCurrentInterval
     {
         get { return this.currentInterval; }
     }
 
+    public void setGunStatus(GunStatus gunStatusA)
+    {
+        this.gunStatus = gunStatusA;
+    }
 
     public void baseInit(GameObject gunImageA, GameObject bulletA, AudioClip fireSoundA)
     {
@@ -32,7 +35,6 @@ public class BaseGun : MonoBehaviour {
         this.bullet = bulletA;
         this.fireSound = fireSoundA;
         attack = 1f;
-        gunInterval = 20;
 
         gunImage.SetActive(false);
     }
@@ -45,7 +47,7 @@ public class BaseGun : MonoBehaviour {
     //呼び出した直後に呼び出される関数
     public virtual void setup()
     {
-        currentInterval = gunInterval;
+        currentInterval = gunStatus.getGunInterval;
         gunImage.SetActive(true);
     }
 
@@ -61,14 +63,9 @@ public class BaseGun : MonoBehaviour {
     {
         if (currentInterval <= 0)
         {
-            var heading = shotPoint - juukouPoint;
-            var direction = Quaternion.LookRotation(heading);
+            gunShot(shotPoint, juukouPoint, audioSource);
 
-            //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
-            Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f, 180f, 0f));
-            audioSource.PlayOneShot(fireSound);
-
-            currentInterval = gunInterval;
+            currentInterval = gunStatus.getGunInterval;
             return 1;
         }
         currentInterval--;
@@ -77,7 +74,18 @@ public class BaseGun : MonoBehaviour {
 
     public void resetInterval()
     {
-        currentInterval = gunInterval;
+        currentInterval = gunStatus.getGunInterval;
+    }
+
+    //球を撃つ
+    protected virtual void gunShot(Vector3 shotPoint, Vector3 juukouPoint, AudioSource audioSource)
+    {
+        var heading = shotPoint - juukouPoint;
+        var direction = Quaternion.LookRotation(heading);
+
+        //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
+        Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f, 180f, 0f));
+        audioSource.PlayOneShot(fireSound);
     }
 
 }

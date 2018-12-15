@@ -35,6 +35,7 @@ public class Hp : MonoBehaviour {
                 Score.score += scoreList[2];
             }
             Debug.Log("現在の得点 : " + Score.score.ToString());
+
             Destroy(this.enemy);
         }
     }

@@ -6,7 +6,6 @@ public class HandGun : BaseGun
 {
     public override void init()
     {
-        this.attack = 20f;
-        this.gunInterval = 45;
+        
     }
 }
