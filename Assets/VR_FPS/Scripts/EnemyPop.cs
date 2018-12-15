@@ -8,6 +8,8 @@ public class EnemyPop : MonoBehaviour {
     [SerializeField]
     List<GameObject> enemyList = new List<GameObject>();
     [SerializeField]
+    List<GameObject> jellyList = new List<GameObject>();
+    [SerializeField]
     int popCount;   //1以上
     [SerializeField]
     int popSpeed;   //1以上
@@ -18,14 +20,15 @@ public class EnemyPop : MonoBehaviour {
     private void Update()
     {
         Random rand = new Random();
-        if (SceneManager.GetActiveScene().name == "Stage1")       //ステージ１でのポップ処理
+        if (SceneManager.GetActiveScene().name == "Stage1" || SceneManager.GetActiveScene().name == "Stage1_Wataru")       //ステージ１でのポップ処理
         {
             if (this.popTime == this.popSpeed * 60)
             {
                 for (int i = 0; i < popCount; i++)
                 {
                     int rnd = Random.Range(0, 4);
-                    Instantiate(this.enemyList[rnd], this.enemyList[rnd].transform.position, Quaternion.identity);
+                    int jellyRnd = Random.Range(0, 3);
+                    Instantiate(this.jellyList[jellyRnd], this.enemyList[rnd].transform.position, Quaternion.identity);
                 }
                 this.popTime = 0;
             }
@@ -37,7 +40,8 @@ public class EnemyPop : MonoBehaviour {
                 for (int i = 0; i < popCount; i++)
                 {
                     int rnd = Random.Range(4, 8);
-                    Instantiate(this.enemyList[rnd], this.enemyList[rnd].transform.position, Quaternion.identity);
+                    int jellyRnd = Random.Range(0, 3);
+                    Instantiate(this.jellyList[jellyRnd], this.enemyList[rnd].transform.position, Quaternion.identity);
                 }
                 this.popTime = 0;
             }
