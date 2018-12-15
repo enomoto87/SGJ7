@@ -5,12 +5,13 @@ using UnityEngine;
 public class ShotGun : BaseGun
 {
 
-    protected override void gunShot(Vector3 shotPoint, Vector3 juukouPoint, AudioSource audioSource)
+    protected override void gunShot(Vector3 shotPoint, Vector3 juukouPoint, AudioSource audioSource, bool isPlaySound = true)
     {
 
         for (int i = 0; i < 5; i++)
         {
-
+            base.gunShot(shotPoint, juukouPoint, audioSource, false);
+            /*
             float randX = Random.Range(-5f, 5f);
             float randY = Random.Range(-5f, 5f);
 
@@ -19,8 +20,10 @@ public class ShotGun : BaseGun
 
             //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
             Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f + randX, 180f + randY, 0f));
-            audioSource.PlayOneShot(fireSound);
+            */
+            
         }
+        audioSource.PlayOneShot(fireSound);
     }
 
 }

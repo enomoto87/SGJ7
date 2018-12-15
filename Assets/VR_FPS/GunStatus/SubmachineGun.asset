@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: SubmachineGun
   attack: 10
-  gunInterval: 10
-  gunLookCount: 0
+  gunInterval: 5
+  coolTimeCount: 0
+  shakeRate: 3
   sound: {fileID: 8300000, guid: 7440b9907371577459268d5027bf56e4, type: 3}

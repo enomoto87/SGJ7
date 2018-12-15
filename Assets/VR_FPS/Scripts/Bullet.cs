@@ -6,8 +6,20 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     GameObject bullet;
 
+    int gunType;//銃の種類
+
     bool isForced = false;
     int age = 0;
+
+    public int getGunType
+    {
+        get { return this.gunType; }
+    }
+
+    public void setGunType(int gunTypeA)
+    {
+        this.gunType = gunTypeA;
+    }
 
     // Update is called once per frame
     void Update()

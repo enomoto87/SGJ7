@@ -11,18 +11,27 @@ public class GunStatus : ScriptableObject {
     [Header("攻撃力")]
     [SerializeField]
     int attack;
-    [Header("連射間隔")]
+    [Header("連射間隔(注視時間)")]
     [SerializeField]
     int gunInterval;
-    [Header("注目時間")]
+    [Header("クールタイム")]
     [SerializeField]
-    int gunLookCount = 0;
+    int coolTimeCount = 0;
+    [Header("弾のぶれ幅")]
+    [SerializeField]
+    float shakeRate = 0f;
+    [Header("最大装填数")]
+    [SerializeField]
+    int maxMagazine = 50;
+    [Header("装填数回復時間")]
+    [SerializeField]
+    int reloadTimeCount = 100;
     //[Header("持っている時のモデル")]
     //[SerializeField]
     //GameObject gunImage;
-    [Header("撃った時の効果音")]
-    [SerializeField]
-    AudioClip sound;
+    //[Header("撃った時の効果音")]
+    //[SerializeField]
+    //AudioClip sound;
 
 
     public int getAttack
@@ -35,9 +44,24 @@ public class GunStatus : ScriptableObject {
         get { return gunInterval; }
     }
 
-    public int getGunLookCount
+    public int getCoolTimeCount
     {
-        get { return gunLookCount; }
+        get { return coolTimeCount; }
+    }
+
+    public float getShakeRate
+    {
+        get { return shakeRate; }
+    }
+
+    public int getMaxMagazine
+    {
+        get { return maxMagazine; }
+    }
+
+    public int getReloadTimeCount
+    {
+        get { return getReloadTimeCount; }
     }
 
     /*
@@ -47,10 +71,10 @@ public class GunStatus : ScriptableObject {
     }
     */
 
-
+    /*
     public AudioClip getSound
     {
         get { return getSound; }
     }
-
+    */
 }

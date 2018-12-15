@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Name: HandGun
   m_EditorClassIdentifier: 
   name: HandGun
-  attack: 20
-  gunInterval: 30
-  gunLookCount: 0
-  sound: {fileID: 8300000, guid: cd2a6109bd96fe44d933549e6d1a5949, type: 3}
+  attack: 30
+  gunInterval: 10
+  coolTimeCount: 10
+  shakeRate: 0
+  maxMagazine: 30
+  reloadTimeCount: 100

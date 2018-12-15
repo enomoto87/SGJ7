@@ -11,10 +11,13 @@ public class BaseGun : MonoBehaviour {
     protected GameObject bullet; //呼び出される弾丸
     protected AudioClip fireSound; //撃った時の効果音
 
-    private int currentInterval; //インターバル計算における現在のカウント
+    protected int currentInterval; //インターバル計算における現在のカウント
+    protected int currentCoolTimeCount; //現在のクールタイム終了までのカウント
+
+    protected int currentMagazine;//残り残弾数
 
 
-    public GunStatus GetGunStatus
+    public GunStatus getGunStatus
     {
         get { return this.gunStatus; }
     }
@@ -22,6 +25,16 @@ public class BaseGun : MonoBehaviour {
     public int getCurrentInterval
     {
         get { return this.currentInterval; }
+    }
+
+    public int getCurrentCoolTimeCount
+    {
+        get { return currentCoolTimeCount; }
+    }
+
+    public int getCurrentMagazine
+    {
+        get { return currentMagazine; }
     }
 
     public void setGunStatus(GunStatus gunStatusA)
@@ -34,7 +47,9 @@ public class BaseGun : MonoBehaviour {
         this.gunImage = gunImageA;
         this.bullet = bulletA;
         this.fireSound = fireSoundA;
+        currentMagazine = gunStatus.getMaxMagazine;
         attack = 1f;
+        //this.fireSound = gunStatus.getSound;
 
         gunImage.SetActive(false);
     }
@@ -48,6 +63,7 @@ public class BaseGun : MonoBehaviour {
     public virtual void setup()
     {
         currentInterval = gunStatus.getGunInterval;
+        currentCoolTimeCount = 0;
         gunImage.SetActive(true);
     }
 
@@ -61,14 +77,21 @@ public class BaseGun : MonoBehaviour {
 
     public virtual int Shot(Vector3 shotPoint, Vector3 juukouPoint, AudioSource audioSource)
     {
-        if (currentInterval <= 0)
+        if (currentMagazine == 0)
+            return 0;
+        if (currentCoolTimeCount == 0)
         {
-            gunShot(shotPoint, juukouPoint, audioSource);
+            if (currentInterval <= 0)
+            {
+                gunShot(shotPoint, juukouPoint, audioSource);
 
-            currentInterval = gunStatus.getGunInterval;
-            return 1;
+                currentInterval = gunStatus.getGunInterval;
+                currentCoolTimeCount = gunStatus.getCoolTimeCount;
+                currentMagazine--;
+                return 1;
+            }
+            currentInterval--;
         }
-        currentInterval--;
         return 0;
     }
 
@@ -77,14 +100,29 @@ public class BaseGun : MonoBehaviour {
         currentInterval = gunStatus.getGunInterval;
     }
 
-    //球を撃つ
-    protected virtual void gunShot(Vector3 shotPoint, Vector3 juukouPoint, AudioSource audioSource)
+    public void updateCoolTimeCount()
     {
+        if (currentCoolTimeCount > 0)
+            currentCoolTimeCount--;
+    }
+
+    //手に持っていないときに呼び出される
+    public void notHaveUpdate()
+    {
+        currentMagazine = gunStatus.getMaxMagazine;
+    }
+
+    //球を撃つ
+    protected virtual void gunShot(Vector3 shotPoint, Vector3 juukouPoint, AudioSource audioSource, bool isPlaySound = true)
+    {
+        float randX = Random.Range(-gunStatus.getShakeRate, gunStatus.getShakeRate);
+        float randY = Random.Range(-gunStatus.getShakeRate, gunStatus.getShakeRate);
+
         var heading = shotPoint - juukouPoint;
         var direction = Quaternion.LookRotation(heading);
 
         //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
-        Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f, 180f, 0f));
+        Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f+randX, 180f+randY, 0f));
         audioSource.PlayOneShot(fireSound);
     }
 
