@@ -15,4 +15,4 @@ MonoBehaviour:
   attack: 30
   gunInterval: 90
   gunLookCount: 0
-  sound: {fileID: 8300000, guid: 977092c45a135ab40aef1e23c44ec7f1, type: 3}
+  sound: {fileID: 8300000, guid: 778899cf1f8224e48b8b6b0e14d4e04d, type: 3}

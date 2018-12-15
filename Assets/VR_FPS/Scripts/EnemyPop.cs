@@ -13,6 +13,8 @@ public class EnemyPop : MonoBehaviour {
     int popCount;   //1以上
     [SerializeField]
     int popSpeed;   //1以上
+    [SerializeField]
+    GameObject cameraEye;
 
     int popTime = 0;
 
@@ -28,7 +30,8 @@ public class EnemyPop : MonoBehaviour {
                 {
                     int rnd = Random.Range(0, 4);
                     int jellyRnd = Random.Range(0, 3);
-                    Instantiate(this.jellyList[jellyRnd], this.enemyList[rnd].transform.position, Quaternion.identity);
+                    GameObject obj = Instantiate(this.jellyList[jellyRnd], this.enemyList[rnd].transform.position, Quaternion.identity);
+                    obj.gameObject.GetComponent<BlueJellyMove>().Player = this.cameraEye;
                 }
                 this.popTime = 0;
             }

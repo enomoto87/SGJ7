@@ -157,15 +157,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948471363902184}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f32bfe5ceeb808419887812d3b7618d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 0.5
-  sinSpeed: 0.5
-  waitTime: 0
+  speed: 1
+  speedRota: 0.1
+  sinSpeed: 0.1
+  waitTime: 2
+  enemy: {fileID: 1948471363902184}
 --- !u!114 &114905164093871994
 MonoBehaviour:
   m_ObjectHideFlags: 1
