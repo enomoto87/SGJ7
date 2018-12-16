@@ -3256,7 +3256,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
+  m_Children:
+  - {fileID: 836943964}
   m_Father: {fileID: 1238892016}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4072,6 +4073,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4059097751664302, guid: 19c42e780c9554544b85d9dc79515564,
     type: 2}
   m_PrefabInternal: {fileID: 825703255}
+--- !u!4 &836943964 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714,
+    type: 2}
+  m_PrefabInternal: {fileID: 1143270707}
 --- !u!1001 &848981551
 Prefab:
   m_ObjectHideFlags: 0
@@ -6556,6 +6562,99 @@ Transform:
   m_PrefabParentObject: {fileID: 4693335028908810, guid: d832a3f9ac51c37479027671c73b69fe,
     type: 2}
   m_PrefabInternal: {fileID: 1138563578}
+--- !u!1001 &1143270707
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 740997724}
+    m_Modifications:
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695619576679916, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65085086195923294, guid: 4db2b0df425fe6744a395671f64ac714,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 159.87982
+      objectReference: {fileID: 0}
+    - target: {fileID: 65085086195923294, guid: 4db2b0df425fe6744a395671f64ac714,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 30.846214
+      objectReference: {fileID: 0}
+    - target: {fileID: 65085086195923294, guid: 4db2b0df425fe6744a395671f64ac714,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.028188897
+      objectReference: {fileID: 0}
+    - target: {fileID: 65085086195923294, guid: 4db2b0df425fe6744a395671f64ac714,
+        type: 2}
+      propertyPath: m_Center.x
+      value: -0.29659256
+      objectReference: {fileID: 0}
+    - target: {fileID: 65085086195923294, guid: 4db2b0df425fe6744a395671f64ac714,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.49991608
+      objectReference: {fileID: 0}
+    - target: {fileID: 65085086195923294, guid: 4db2b0df425fe6744a395671f64ac714,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0.019570293
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329534787667450, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+      propertyPath: m_Name
+      value: RetryButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 114527304497957680, guid: 4db2b0df425fe6744a395671f64ac714,
+        type: 2}
+      propertyPath: selectButtonType
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4db2b0df425fe6744a395671f64ac714, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1152209732
 Prefab:
   m_ObjectHideFlags: 0
@@ -7193,24 +7292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualizeFocus: 0
-  focalLength: 10
-  focalSize: 0.68
-  aperture: 0.5
-  focalTransform: {fileID: 0}
-  maxBlurSize: 2
-  highResolution: 0
-  blurType: 0
-  blurSampleCount: 2
-  nearBlur: 0
-  foregroundOverlap: 1
-  dofHdrShader: {fileID: 4800000, guid: acd613035ff3e455e8abf23fdc8c8c24, type: 3}
-  dx11BokehShader: {fileID: 4800000, guid: d8e82664aa8686642a424c88ab10164a, type: 3}
-  dx11BokehThreshold: 0.5
-  dx11SpawnHeuristic: 0.0875
-  dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
-  dx11BokehScale: 1.2
-  dx11BokehIntensity: 2.5
 --- !u!114 &1227545829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7222,14 +7303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b5ec6153a1d55438228df10fe66844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFog: 1
-  excludeFarPixels: 1
-  useRadialDistance: 1
-  heightFog: 1
-  height: 1
-  heightDensity: 1.01
-  startDistance: 0
-  fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &1227545830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7241,145 +7314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a7625302996c94ba07a8ca3351f668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HistogramComputeShader: {fileID: 7200000, guid: 5ee4b74fa28a3e74e89423dd49705fc5,
-    type: 3}
-  m_HistogramShader: {fileID: 4800000, guid: 9a8e838691462194482a43a02e424876, type: 3}
-  histogramRefreshOnPlay: 0
-  m_EyeAdaptation:
-    enabled: 1
-    middleGrey: 0.3
-    min: -3
-    max: 3
-    speed: 1.5
-    showDebug: 0
-  m_Tonemapping:
-    enabled: 1
-    tonemapper: 6
-    exposure: 1
-    curve:
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    neutralBlackIn: 0.027
-    neutralWhiteIn: 10
-    neutralBlackOut: 0
-    neutralWhiteOut: 10
-    neutralWhiteLevel: 5.3
-    neutralWhiteClip: 10
-  m_ColorGrading:
-    enabled: 1
-    precision: 16
-    colorWheels:
-      shadows:
-        r: 0.8467979
-        g: 0.80777204
-        b: 1
-        a: 1
-      midtones:
-        r: 0.8890813
-        g: 0.91681105
-        b: 1
-        a: 1
-      highlights:
-        r: 0.78362143
-        g: 0.9097811
-        b: 1
-        a: 1
-    basics:
-      temperatureShift: 0
-      tint: 0
-      hue: 0
-      saturation: 0.95
-      vibrance: 0
-      value: 1
-      contrast: 1
-      gain: 1.06
-      gamma: 1
-    channelMixer:
-      currentChannel: 0
-      channels:
-      - {x: 1, y: 0, z: 0}
-      - {x: 0, y: 1, z: 0}
-      - {x: 0, y: 0, z: 1}
-    curves:
-      master:
-        m_Curve:
-        - time: 0
-          value: 0
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 0
-      red:
-        m_Curve:
-        - time: 0
-          value: 0
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 0
-      green:
-        m_Curve:
-        - time: 0
-          value: 0
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 0
-      blue:
-        m_Curve:
-        - time: 0
-          value: 0
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 0
-    useDithering: 0
-    showDebug: 0
-  m_Lut:
-    enabled: 0
-    texture: {fileID: 0}
-    contribution: 1
-  m_Shader: {fileID: 4800000, guid: 964b34bbab7f5e64fa40f37eaccac1ad, type: 3}
 --- !u!114 &1227545831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7391,40 +7325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc35e0180670ab4e8d2f9439137791f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SMAA:
-    settings:
-      debugPass: 0
-      quality: 3
-      edgeDetectionMethod: 2
-    quality:
-      diagonalDetection: 1
-      cornerDetection: 1
-      threshold: 0.1
-      depthThreshold: 0.01
-      maxSearchSteps: 16
-      maxDiagonalSearchSteps: 8
-      cornerRounding: 25
-      localContrastAdaptationFactor: 2
-    predication:
-      enabled: 1
-      threshold: 0.01
-      scale: 1
-      strength: 0.4
-    temporal:
-      enabled: 0
-      fuzzSize: 2
-  m_FXAA:
-    preset:
-      qualitySettings:
-        subpixelAliasingRemovalAmount: 0.75
-        edgeDetectionThreshold: 0.166
-        minimumRequiredLuminance: 0.0833
-      consoleSettings:
-        subpixelSpreadAmount: 0.5
-        edgeSharpnessAmount: 8
-        edgeDetectionThreshold: 0.125
-        minimumRequiredLuminance: 0.05
-  m_Method: 0
 --- !u!114 &1227545832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7436,14 +7336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32187365ced0c42219cde2b57c99b323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings:
-    threshold: 0.6
-    softKnee: 0.893
-    radius: 5.75
-    intensity: 0.7
-    highQuality: 1
-    antiFlicker: 0
-  m_Shader: {fileID: 4800000, guid: e45d4f28262b04d10a075856ab5fdb5e, type: 3}
 --- !u!114 &1227545833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7455,17 +7347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89654dcf6db746d2a57aeaaa14f5e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings:
-    intensity: 1.76
-    radius: 0.5
-    sampleCount: 3
-    sampleCountValue: 24
-    downsampling: 0
-    ambientOnly: 0
-    occlusionSource: 1
-    debug: 0
-  _aoShader: {fileID: 4800000, guid: 65e203e5acda447acbf9dc1ef78c4a39, type: 3}
-  _quadMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 3}
 --- !u!81 &1227545834
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7547,21 +7428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9191284b058eef549b7108b5f04e1117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensityMultiplier: 0.12
-  generalIntensity: 0.5
-  blackIntensity: 1
-  whiteIntensity: 1
-  midGrey: 0.2
-  dx11Grain: 1
-  softness: 0
-  monochrome: 0
-  intensities: {x: 1, y: 1, z: 1}
-  tiling: {x: 64, y: 64, z: 64}
-  monochromeTiling: 64
-  filterMode: 1
-  noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
-  noiseShader: {fileID: 4800000, guid: b0249d8c935344451aa4de6db76f0688, type: 3}
-  dx11NoiseShader: {fileID: 4800000, guid: 8b30686bb4322ab42ad5eb50a0210b58, type: 3}
 --- !u!114 &1227545840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7573,36 +7439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5335a7357baa3489a469d0ca0f40f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distortion:
-    enabled: 1
-    amount: -19
-    centerX: 0
-    centerY: 0
-    amountX: 1
-    amountY: 1
-    scale: 1
-  vignette:
-    enabled: 1
-    color:
-      r: 0
-      g: 0
-      b: 0
-      a: 1
-    center: {x: 0.5, y: 0.5}
-    intensity: 0.85
-    smoothness: 0.8
-    roundness: 1
-    blur: 0
-    desaturate: 0
-  chromaticAberration:
-    enabled: 0
-    color:
-      r: 0
-      g: 1
-      b: 0
-      a: 1
-    amount: 0
-  m_Shader: {fileID: 4800000, guid: 136ab50fe2b9ad64d9c22adc3668abb7, type: 3}
 --- !u!1 &1238892015
 GameObject:
   m_ObjectHideFlags: 0
@@ -7706,6 +7542,48 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1242276520
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.2011085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 17.079527
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628910271209024, guid: e074162e07344be43aa73e16ff272403, type: 2}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e074162e07344be43aa73e16ff272403, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1253749665
 Prefab:
   m_ObjectHideFlags: 0
