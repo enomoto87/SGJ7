@@ -46,4 +46,9 @@ public class Hp : MonoBehaviour {
             Destroy(this.enemy);
         }
     }
+
+    public void dead()
+    {
+        Destroy(this.enemy);
+    }
 }
