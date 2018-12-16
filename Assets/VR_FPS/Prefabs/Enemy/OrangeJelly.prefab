@@ -148,6 +148,7 @@ MonoBehaviour:
   hp: 50
   enemy: {fileID: 1248011026505464}
   scoreList: 64000000c80000002c010000
+  gunsStatus: {fileID: 11400000, guid: 76cb4c2e9ba28cb4a89c069e60f6a793, type: 2}
 --- !u!114 &114461943415145324
 MonoBehaviour:
   m_ObjectHideFlags: 1
