@@ -10,7 +10,7 @@ public class SceneChange : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         time++;
-        if (time > 1800)
+        if (time > 3000)
         {
             SceneManager.LoadScene("gameover");
         }
