@@ -22,7 +22,7 @@ public class EnemyPop : MonoBehaviour {
     private void Update()
     {
         Random rand = new Random();
-        if (SceneManager.GetActiveScene().name == "Stage1" || SceneManager.GetActiveScene().name == "Stage1_Wataru")       //ステージ１でのポップ処理
+        if (SceneManager.GetActiveScene().name == "Stage1" || SceneManager.GetActiveScene().name == "Stage1_wataru2")       //ステージ１でのポップ処理
         {
             if (this.popTime == this.popSpeed * 60)
             {
