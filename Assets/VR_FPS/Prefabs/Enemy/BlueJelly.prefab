@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521bb6b857bbe72449abbf847892247d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 100
   enemy: {fileID: 1948471363902184}
   scoreList: 64000000c80000002c010000
   gunsStatus: {fileID: 11400000, guid: 76cb4c2e9ba28cb4a89c069e60f6a793, type: 2}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 1
+  speed: 0.5
   speedRota: 0.1
   sinSpeed: 0.1
   waitTime: 2
