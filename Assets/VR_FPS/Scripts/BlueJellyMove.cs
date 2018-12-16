@@ -85,25 +85,38 @@ public class BlueJellyMove : MonoBehaviour {
                 force = this.transform.forward * speed;
                 this.GetComponent<Rigidbody>().AddForce(force);
 
+                
+                var centerPoint = new Vector3(player.transform.position.x, this.transform.position.y , this.transform.position.z);
+                var centerVec = centerPoint - this.transform.position;
+                //Vector3 centerHougaku = (Quaternion.LookRotation(centerVec)).eulerAngles;
+                //float centerPower = centerVec.magnitude;
+                //Vector3 centerForce = centerHougaku * centerPower * 0.01f;
+                Vector3 centerForce = centerVec * 0.1f;
+
+                this.GetComponent<Rigidbody>().AddForce(centerForce);
+
+                var chasePoint = new Vector3((player.transform.position.x - transform.position.x) / 5f, (player.transform.position.y - transform.position.y) / 5f, player.transform.position.z);
+
+                
                 if (patan == 0)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedRota * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, chasePoint, speedRota * Time.deltaTime);
                     transform.position = new Vector3(transform.position.x, (Mathf.Sin(Time.frameCount * sinSpeed) / 5f + transform.position.y) * f, transform.position.z);
                 }
                 else if (patan == 1)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedRota * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, chasePoint, speedRota * Time.deltaTime);
                     transform.position = new Vector3((Mathf.Cos(Time.frameCount * sinSpeed) / 5f + transform.position.x) * f, transform.position.y, transform.position.z);
 
                 }
                 else if (patan == 2)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedRota * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, chasePoint, speedRota * Time.deltaTime);
                     transform.position = new Vector3((Mathf.Cos(Time.frameCount * sinSpeed) / 5f + transform.position.x) * f, (Mathf.Sin(Time.frameCount * sinSpeed) / 5f + transform.position.y) * f, transform.position.z);
                 }
                 else if (patan == 3)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedRota * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, chasePoint, speedRota * Time.deltaTime);
                     transform.position = new Vector3((Mathf.Sin(Time.frameCount * sinSpeed) / 5f + transform.position.x) * f, (Mathf.Cos(Time.frameCount * sinSpeed) / 5f + transform.position.y) * f, transform.position.z);
 
                 }
