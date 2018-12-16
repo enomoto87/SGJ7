@@ -28,6 +28,8 @@ public class Aim : MonoBehaviour {
     Image gunChangeMeter;
     [SerializeField]
     Text magazineText;
+    [SerializeField]
+    GameObject bulletDangerText;
 
     [SerializeField]
     GunsStatusMgr gunsStatus;
@@ -61,6 +63,7 @@ public class Aim : MonoBehaviour {
         maxGunChangeCount = gunsStatus.getChangeWeaponTime;
         currentGunChangeCount = maxGunChangeCount;
         audioSource = gameObject.GetComponent<AudioSource>();
+        bulletDangerText.SetActive(false);
 
         guns = new BaseGun[NUM_GUN_TYPE];
 
@@ -188,6 +191,15 @@ public class Aim : MonoBehaviour {
             if (i == currentGunIndex)
                 continue;
             guns[i].notHaveUpdate();
+        }
+
+        if(guns[currentGunIndex].getCurrentMagazine == 0)
+        {
+            bulletDangerText.SetActive(true);
+        }
+        else
+        {
+            bulletDangerText.SetActive(false);
         }
 
         //magazineText.text = guns[currentResetIntervalCount].getCurrentMagazine.ToString();

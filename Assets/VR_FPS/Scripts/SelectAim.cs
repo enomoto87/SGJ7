@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectAim : MonoBehaviour {
 
@@ -8,6 +9,9 @@ public class SelectAim : MonoBehaviour {
     GameObject cameraEye;
     [SerializeField]
     LoadScene loadScene;
+
+    [SerializeField]
+    Image meter;
 
     int maxCount = 90;
     int currentCount;
@@ -45,6 +49,8 @@ public class SelectAim : MonoBehaviour {
 
         if (!isSelecting)
             currentCount = 0;
+
+        meter.fillAmount = ((float)currentCount / maxCount);
 
     }
 
