@@ -13,12 +13,19 @@ public class Hp : MonoBehaviour {
     [SerializeField]
     List<int> scoreList;
 
+    [Header("GunsStatusMgrを入れる")]
+    [SerializeField]
+    GunsStatusMgr gunsStatus;
+
     private void OnCollisionEnter(Collision collision)
     {
         
         if (collision.other.CompareTag("TestGun"))
         {
-            this.hp -= 10;
+            //int damage = collision.other.GetComponent<Bullet>.getGunType();
+            int gunType = collision.transform.GetComponent<Bullet>().getGunType;
+            int damage = gunsStatus.getGunsStatus[gunType].getAttack;
+            this.hp -= damage;
             Debug.Log("hit!");
         }
 

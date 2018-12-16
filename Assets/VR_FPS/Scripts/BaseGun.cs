@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BaseGun : MonoBehaviour {
 
+    protected int gunType; //銃のナンバー
     private GameObject gunImage; //銃のイメージ
     protected GunStatus gunStatus;
     protected float attack; //攻撃力
@@ -42,8 +43,9 @@ public class BaseGun : MonoBehaviour {
         this.gunStatus = gunStatusA;
     }
 
-    public void baseInit(GameObject gunImageA, GameObject bulletA, AudioClip fireSoundA)
+    public void baseInit(int gunIndex, GameObject gunImageA, GameObject bulletA, AudioClip fireSoundA)
     {
+        this.gunType = gunIndex;
         this.gunImage = gunImageA;
         this.bullet = bulletA;
         this.fireSound = fireSoundA;
@@ -122,7 +124,8 @@ public class BaseGun : MonoBehaviour {
         var direction = Quaternion.LookRotation(heading);
 
         //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
-        Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f+randX, 180f+randY, 0f));
+        var instanceBullet = Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f+randX, 180f+randY, 0f));
+        instanceBullet.GetComponent<Bullet>().setGunType(gunType);
         audioSource.PlayOneShot(fireSound);
     }
 
