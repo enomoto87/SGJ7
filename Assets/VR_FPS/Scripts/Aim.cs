@@ -71,7 +71,7 @@ public class Aim : MonoBehaviour {
         for (int i = 0; i < NUM_GUN_TYPE; i++)
         {
             guns[i].setGunStatus(gunsStatus.getGunsStatus[i]);
-            guns[i].baseInit(gunImages[i], bullet, gunSound[i]);
+            guns[i].baseInit(i,gunImages[i], bullet, gunSound[i]);
             guns[i].init();
         }
 
