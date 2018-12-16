@@ -19,10 +19,10 @@ public class ScoreController : MonoBehaviour {
                     highScore[i] = PlayerPrefs.GetInt(Score.no1ScoreKey, 0);
                     break;
                 case 1:
-                    highScore[2] = PlayerPrefs.GetInt(Score.no2ScoreKey, 0);
+                    highScore[i] = PlayerPrefs.GetInt(Score.no2ScoreKey, 0);
                     break;
                 case 2:
-                    highScore[3] = PlayerPrefs.GetInt(Score.no3ScoreKey, 0);
+                    highScore[i] = PlayerPrefs.GetInt(Score.no3ScoreKey, 0);
                     break;
                 default:
                     Debug.Log("for error");

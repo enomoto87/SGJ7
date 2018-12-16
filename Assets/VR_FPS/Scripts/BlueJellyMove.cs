@@ -82,17 +82,17 @@ public class BlueJellyMove : MonoBehaviour {
 
                 //    int patan = Random.Range(0, 3);
                 Vector3 force;
-                force = this.transform.forward * 3;
+                force = this.transform.forward * speed;
                 this.GetComponent<Rigidbody>().AddForce(force);
 
                 if (patan == 0)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedRota * Time.deltaTime);
                     transform.position = new Vector3(transform.position.x, (Mathf.Sin(Time.frameCount * sinSpeed) / 5f + transform.position.y) * f, transform.position.z);
                 }
                 else if (patan == 1)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedRota * Time.deltaTime);
                     transform.position = new Vector3((Mathf.Cos(Time.frameCount * sinSpeed) / 5f + transform.position.x) * f, transform.position.y, transform.position.z);
 
                 }
