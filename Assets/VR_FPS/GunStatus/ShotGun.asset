@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Name: ShotGun
   m_EditorClassIdentifier: 
   name: ShotGun
-  attack: 30
-  gunInterval: 90
-  gunLookCount: 0
-  sound: {fileID: 8300000, guid: 778899cf1f8224e48b8b6b0e14d4e04d, type: 3}
+  attack: 20
+  gunInterval: 10
+  coolTimeCount: 50
+  shakeRate: 4
+  maxMagazine: 8
+  reloadTimeCount: 100

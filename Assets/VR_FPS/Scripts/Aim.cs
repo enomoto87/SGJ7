@@ -23,20 +23,22 @@ public class Aim : MonoBehaviour {
     [SerializeField]
     Image fireMeter;
     [SerializeField]
+    Image coolTimeMeter;
+    [SerializeField]
     Image gunChangeMeter;
+    [SerializeField]
+    Text magazineText;
 
     [SerializeField]
-    List<GunStatus> gunStatus;
+    GunsStatusMgr gunsStatus;
 
     [SerializeField]
     List<GameObject> switchGunModel;
+    [SerializeField]
+    List<AudioClip> gunSound;
 
     [SerializeField]
-    GameObject handGunImage;
-    [SerializeField]
-    GameObject SubmachineGunImage;
-    [SerializeField]
-    GameObject ShotGunImage;
+    List<GameObject> gunImages;
 
     AudioSource audioSource;
     Vector3 reticleEnemyPosition;
@@ -46,12 +48,17 @@ public class Aim : MonoBehaviour {
     bool canShot = false;
 
     int currentGunChangeCount;
-    int maxGunChangeCount = 60;
+    int maxGunChangeCount;
     int changingGunIndex = -1; //持とうとしている銃の種類
+
+    const int resetIntervalCount = 3; //照準が全く合っていないときどれくらいでリセットされるか
+    int currentResetIntervalCount;
 
 	// Use this for initialization
 	void Start () {
 
+        currentResetIntervalCount = 0;
+        maxGunChangeCount = gunsStatus.getChangeWeaponTime;
         currentGunChangeCount = maxGunChangeCount;
         audioSource = gameObject.GetComponent<AudioSource>();
 
@@ -63,18 +70,10 @@ public class Aim : MonoBehaviour {
 
         for (int i = 0; i < NUM_GUN_TYPE; i++)
         {
-            guns[i].setGunStatus(gunStatus[i]);
-        }
-
-        guns[0].baseInit(handGunImage, bullet, audioSource.clip);
-        guns[1].baseInit(SubmachineGunImage, bullet, audioSource.clip);
-        guns[2].baseInit(ShotGunImage, bullet, audioSource.clip);
-
-        for (int i = 0; i < NUM_GUN_TYPE; i++)
-        {
+            guns[i].setGunStatus(gunsStatus.getGunsStatus[i]);
+            guns[i].baseInit(gunImages[i], bullet, gunSound[i]);
             guns[i].init();
         }
-
 
         //ハンドガンに持ちかえる
         currentGunIndex = 0;
@@ -99,7 +98,7 @@ public class Aim : MonoBehaviour {
         //レティクル変化判定
         // レーザー（ray）を飛ばす「起点」と「方向」
         Ray ray = new Ray(this.rayShiten.transform.position, transform.forward);
-        Debug.DrawLine(ray.origin, ray.direction * 500, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction * 500, Color.green);
 
         // rayのあたり判定の情報を入れる箱を作る。
         RaycastHit hit;
@@ -114,7 +113,6 @@ public class Aim : MonoBehaviour {
             {
                 //Debug.Log(hit.point.x.ToString());//オブジェクトとの接触座標
                 //Debug.Log(hit.transform.localPosition.x.ToString());//当たったオブジェクトの座標取得
-                // 照準器の色を「赤」に変える（色は自由に変更してください。）
                 aimImage.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
                 //敵に向けて射撃
                 guns[currentGunIndex].Shot(hit.point, juukou.transform.transform.position, audioSource);
@@ -124,8 +122,6 @@ public class Aim : MonoBehaviour {
             }
             else
             {
-
-                // 照準器の色を「水色」（色は自由に変更してください。）
                 aimImage.color = new Color(0.0f, 1.0f, 1.0f, 1.0f);
             }
 
@@ -139,7 +135,6 @@ public class Aim : MonoBehaviour {
         }
         else
         {
-            // 照準器の色を「水色」（色は自由に変更してください。）
             aimImage.color = new Color(0.0f, 1.0f, 1.0f, 1.0f);
         }
 
@@ -153,11 +148,18 @@ public class Aim : MonoBehaviour {
             isShoted = true;
         }
 
-        //撃てなかった場合はインターバルをリセット
+        //ある時間撃てない状態だったら場合はインターバルをリセット
         if (!isShoted)
         {
-            guns[currentGunIndex].resetInterval();
+            if (currentResetIntervalCount >= 0)
+                currentResetIntervalCount--;
+            if(currentResetIntervalCount == 0)
+                guns[currentGunIndex].resetInterval();
             //interval = maxInterval;
+        }
+        else
+        {
+            currentResetIntervalCount = resetIntervalCount;
         }
         canShot = false;
 
@@ -167,8 +169,28 @@ public class Aim : MonoBehaviour {
             noTryChangeGun();
         }
 
-        fireMeter.fillAmount = 1 - ((float)guns[currentGunIndex].getCurrentInterval / guns[currentGunIndex].GetGunStatus.getGunInterval);
+        guns[currentGunIndex].updateCoolTimeCount();
+
+        magazineText.text = guns[currentGunIndex].getCurrentMagazine.ToString();
+
+        if (guns[currentGunIndex].getCurrentMagazine == 0)
+            coolTimeMeter.fillAmount = 0;
+        else if (guns[currentGunIndex].getGunStatus.getCoolTimeCount == 0)
+            coolTimeMeter.fillAmount = 1;
+        else
+            coolTimeMeter.fillAmount = 1 - ((float)guns[currentGunIndex].getCurrentCoolTimeCount / guns[currentGunIndex].getGunStatus.getCoolTimeCount);
+               
+        fireMeter.fillAmount = 1 - ((float)guns[currentGunIndex].getCurrentInterval / guns[currentGunIndex].getGunStatus.getGunInterval);
         gunChangeMeter.fillAmount = 1 - ((float)currentGunChangeCount / maxGunChangeCount);
+
+        for(int i = 0; i < NUM_GUN_TYPE; i++)
+        {
+            if (i == currentGunIndex)
+                continue;
+            guns[i].notHaveUpdate();
+        }
+
+        //magazineText.text = guns[currentResetIntervalCount].getCurrentMagazine.ToString();
         //fireMeter.fillAmount = 1 - (interval / maxInterval);
     }
     
@@ -194,7 +216,6 @@ public class Aim : MonoBehaviour {
     //武器の方向を向いている場合持ち変えるか試行する　持ち替えたならTrue
     bool tryChangeGun(int gunIndex)
     {
-        Debug.Log("tryChange");
         if(changingGunIndex != gunIndex) //今見ている銃と持ち替えようとしている銃のタイプが違う場合
         {
             currentGunChangeCount = maxGunChangeCount;
