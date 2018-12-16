@@ -97,8 +97,7 @@ public class BlueJellyMove : MonoBehaviour {
 
                 var chasePoint = new Vector3((player.transform.position.x - transform.position.x) / 5f, (player.transform.position.y - transform.position.y) / 5f, player.transform.position.z);
 
-                Debug.Log(chasePoint.x);
-
+                
                 if (patan == 0)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, chasePoint, speedRota * Time.deltaTime);
