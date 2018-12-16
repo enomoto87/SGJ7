@@ -16,4 +16,5 @@ MonoBehaviour:
   gunInterval: 5
   coolTimeCount: 0
   shakeRate: 3
-  sound: {fileID: 8300000, guid: 7440b9907371577459268d5027bf56e4, type: 3}
+  maxMagazine: 100
+  bulletForce: 0.001

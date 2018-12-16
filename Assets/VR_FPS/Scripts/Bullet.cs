@@ -21,9 +21,17 @@ public class Bullet : MonoBehaviour {
         this.gunType = gunTypeA;
     }
 
+    public void setUp(float forcePower)
+    {
+        Vector3 force;
+        force = this.bullet.transform.up * forcePower;
+        this.bullet.GetComponent<Rigidbody>().AddForce(force);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        /*
         if (!this.isForced)
         {
             Vector3 force;
@@ -31,6 +39,8 @@ public class Bullet : MonoBehaviour {
             this.bullet.GetComponent<Rigidbody>().AddForce(force);
             this.isForced = true;
         }
+        */
+
         this.age++;
         
         if(age >= 300)

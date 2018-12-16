@@ -23,9 +23,9 @@ public class GunStatus : ScriptableObject {
     [Header("最大装填数")]
     [SerializeField]
     int maxMagazine = 50;
-    [Header("装填数回復時間")]
+    [Header("弾速(与える力)")]
     [SerializeField]
-    int reloadTimeCount = 100;
+    float bulletForce = 0.001f;
     //[Header("持っている時のモデル")]
     //[SerializeField]
     //GameObject gunImage;
@@ -59,9 +59,9 @@ public class GunStatus : ScriptableObject {
         get { return maxMagazine; }
     }
 
-    public int getReloadTimeCount
+    public float getBulletForce
     {
-        get { return getReloadTimeCount; }
+        get { return bulletForce; }
     }
 
     /*

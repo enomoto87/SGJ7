@@ -126,6 +126,7 @@ public class BaseGun : MonoBehaviour {
         //Instantiate(this.bullet, this.juukou.transform.position, this.cameraEye.transform.rotation * Quaternion.Euler(-90f, 180f, 0f));
         var instanceBullet = Instantiate(this.bullet, juukouPoint, direction * Quaternion.Euler(-90f+randX, 180f+randY, 0f));
         instanceBullet.GetComponent<Bullet>().setGunType(gunType);
+        instanceBullet.GetComponent<Bullet>().setUp(gunStatus.getBulletForce);
         audioSource.PlayOneShot(fireSound);
     }
 

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2065044399ab22a4c9ef80559eba5df7, type: 3}
   m_Name: GunsStatusMgr
   m_EditorClassIdentifier: 
-  changeWeaponTime: 60
+  changeWeaponTime: 40
   gunsStatus:
   - {fileID: 11400000, guid: 38f2bfa1b8e12e14d97af8a5893960e4, type: 2}
   - {fileID: 11400000, guid: 7c825a62a52cb704ca65572164ae9696, type: 2}

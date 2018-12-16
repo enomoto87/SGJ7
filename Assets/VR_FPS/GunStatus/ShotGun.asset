@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: ShotGun
   m_EditorClassIdentifier: 
   name: ShotGun
-  attack: 20
+  attack: 25
   gunInterval: 10
   coolTimeCount: 50
   shakeRate: 4
   maxMagazine: 8
-  reloadTimeCount: 100
+  bulletForce: 0.001

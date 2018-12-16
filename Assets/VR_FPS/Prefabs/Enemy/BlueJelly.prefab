@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 0.5
+  speed: 0.3
   speedRota: 0.1
   sinSpeed: 0.1
   waitTime: 2

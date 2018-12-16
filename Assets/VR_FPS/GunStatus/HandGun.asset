@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: HandGun
   m_EditorClassIdentifier: 
   name: HandGun
-  attack: 30
+  attack: 25
   gunInterval: 10
   coolTimeCount: 10
   shakeRate: 0
   maxMagazine: 30
-  reloadTimeCount: 100
+  bulletForce: 0.002
