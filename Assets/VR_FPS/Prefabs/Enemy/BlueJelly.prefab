@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   enemy: {fileID: 1948471363902184}
-  scoreList: 64000000c80000002c010000
+  scoreList: 8c0000007d00000064000000
   gunsStatus: {fileID: 11400000, guid: 76cb4c2e9ba28cb4a89c069e60f6a793, type: 2}
 --- !u!114 &114836714786579786
 MonoBehaviour:
