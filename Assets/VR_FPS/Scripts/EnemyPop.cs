@@ -25,7 +25,11 @@ public class EnemyPop : MonoBehaviour {
         Random rand = new Random();
         if (SceneManager.GetActiveScene().name == "Stage1" || SceneManager.GetActiveScene().name == "Stage1_wataru2")       //ステージ１でのポップ処理
         {
-            if (this.popTime >= (-0.0012963 * frameTime + (float)popSpeed) * 90)
+            //float popInt = (-0.0012963f * frameTime + (float)popSpeed) *90f;
+            float popInt = (-0.0006963f * frameTime + (float)popSpeed) * 90f;
+            if (popInt <= 90f)
+                popInt = 90f;
+            if (this.popTime >= popInt)
             {
                 for (int i = 0; i < popCount; i++)
                 {

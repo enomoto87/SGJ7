@@ -15,6 +15,6 @@ MonoBehaviour:
   attack: 10
   gunInterval: 5
   coolTimeCount: 0
-  shakeRate: 3
+  shakeRate: 2.5
   maxMagazine: 100
   bulletForce: 0.001
